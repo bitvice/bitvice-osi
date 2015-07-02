@@ -1,3 +1,3 @@
-# bitVice.OSI v3.10.0
+# bitVice.OSI v1.0.0
 
 Observer Services Injection for node.js
