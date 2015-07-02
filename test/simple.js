@@ -88,6 +88,6 @@ describe('OSI', function(){
 
 
         // test
-        // expect(response).to.be.a('number', 100);
+        expect(response).to.be.a('number', 100);
     });
 });
