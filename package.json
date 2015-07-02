@@ -1,0 +1,39 @@
+{
+  "name": "bitvice-osi",
+  "description": "Observer Services Injection for node.js",
+  "version": "1.0.0",
+  "contributors": [
+    {
+      "name": "Gabriel Balasz",
+      "email": "gabi@bitvice.ro"
+    }
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bitvice/osi"
+  },
+  "dependencies": {
+    "lodash": "~3.10.0",
+    "debug": "~2.2.0"
+  },
+  "files": [
+    "LICENSE",
+    "HISTORY.md",
+    "README.md",
+    "index.js"
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "mocha --check-leaks --reporter spec --bail",
+    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --check-leaks --reporter dot",
+    "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --check-leaks --reporter spec"
+  },  
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/bitvice/osi/issues"
+  },
+  "homepage": "https://github.com/bitvice/osi"
+}
