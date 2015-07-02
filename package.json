@@ -19,10 +19,12 @@
   },
   "devDependencies": {
     "istanbul": "0.3.9",
-    "mocha": "~2.2.4",
+    "mocha": "~2.2.5",
     "chai": "~3.0.0",
-    "supertest": "~0.15.0"
-  },  
+    "supertest": "~0.15.0",
+    "coveralls": "~2.11.2",
+    "mocha-lcov-reporter": "0.0.2"
+  },
   "files": [
     "LICENSE",
     "HISTORY.md",
@@ -34,10 +36,10 @@
   },
   "scripts": {
     "test": "mocha --check-leaks --reporter spec --bail",
-    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --check-leaks --reporter dot",
-    "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --check-leaks --reporter spec"    
+    "test-cov": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --check-leaks --reporter spec"
   },
-  "readme": "# bitvice-osi",    
+  "readme": "# bitvice-osi",
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/bitvice/osi/issues"
