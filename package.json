@@ -11,7 +11,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/bitvice/osi"
+    "url": "git://github.com/bitvice/bitvice-osi"
   },
   "dependencies": {
     "lodash": "~3.10.0"
@@ -38,7 +38,7 @@
   "readme": "# bitvice-osi",
   "readmeFilename": "README.md",
   "bugs": {
-    "url": "https://github.com/bitvice/osi/issues"
+    "url": "https://github.com/bitvice/bitvice-osi/issues"
   },
-  "homepage": "https://github.com/bitvice/osi"
+  "homepage": "https://github.com/bitvice/bitvice-osi"
 }
