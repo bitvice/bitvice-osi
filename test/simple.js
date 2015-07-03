@@ -3,7 +3,6 @@ var chai    = require('chai'),
     expect  = chai.expect, 
     should  = chai.should();
 var OSI     = require('../index.js');
-var debug = require('debug')('bitvice:test');
  
 describe('OSI', function(){
 
@@ -31,16 +30,16 @@ describe('OSI', function(){
 
         // Define the consumer first
 
+        var testDependencies = ['basicService', 'secondService']
+
         function TestConsumer () {
-            this._requires = ['basicService', 'secondService'];
+            this._requires = testDependencies;
             OSI.ServiceConsumer.call(this);
         }
 
         util.inherits(TestConsumer, OSI.ServiceConsumer);
 
         TestConsumer.prototype.__constructor = function () {
-            debug('TestConsumer __constructor');
-
             var basicService  = this.service('basicService' );
             var secondService = this.service('secondService');
 
@@ -48,6 +47,29 @@ describe('OSI', function(){
         };
 
         var consumerInstance = new TestConsumer();
+
+        // test
+        should.exist(consumerInstance);
+
+
+
+        function Nonsense () {
+            OSI.ServiceConsumer.call(this);            
+        }
+
+        util.inherits(Nonsense, OSI.ServiceConsumer);
+
+        var nonsenseInstance = new Nonsense();
+
+        // test
+        should.exist(nonsenseInstance);
+
+        // test
+        should.exist(nonsenseInstance.__constructor);
+
+        // test
+        should.not.exist(nonsenseInstance.__constructor());
+
 
 
 
@@ -85,6 +107,24 @@ describe('OSI', function(){
 
         OSI.ServiceProvider.registerService('secondService', SecondService);
 
+
+
+        function NonsenseService () {
+            OSI.Service.call(this);            
+        }
+
+        util.inherits(NonsenseService, OSI.Service);
+
+        OSI.ServiceProvider.registerService('nonsenseService', NonsenseService);
+
+        var ns = OSI.ServiceProvider.service('nonsenseService');
+
+        // test
+        expect(ns.run).to.be.a('function');
+
+        // test
+        should.not.exist(ns.run());
+        
 
 
         // test

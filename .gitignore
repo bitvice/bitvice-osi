@@ -2,6 +2,7 @@
 .metadata
 bin/
 node_modules/
+coverage/
 tmp/
 *.tmp
 *.bak
