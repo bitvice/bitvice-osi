@@ -7,3 +7,7 @@ var osi = module.exports;
 osi.ServiceConsumer = consumer ;
 osi.ServiceProvider = provider ;
 osi.Service         = service  ;
+
+// TODO: Move ServiceProvider here
+// TODO: Can we use promises ? Think so :)
+
