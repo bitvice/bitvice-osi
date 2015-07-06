@@ -17,7 +17,7 @@ describe('OSI', function(){
             expect(OSI.ServiceProvider).to.be.a('object');
         });
     });
-
+/*
     describe('Consumers before, serivces after', function(){
         it('Consumers are waiting for services to become available', function () {
             var response;
@@ -173,4 +173,5 @@ describe('OSI', function(){
             expect(response).to.be.a('number', expected);
         });
     });
+*/
 });
