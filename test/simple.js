@@ -5,7 +5,7 @@ var chai    = require('chai'),
 var OSI     = require('../index.js');
  
 describe('OSI', function(){
-
+/*
     describe('ServiceConsumer', function(){
         it('Should be able to use the ServiceConsumer.', function(){
             expect(OSI.ServiceConsumer).to.be.a('function');
@@ -17,7 +17,6 @@ describe('OSI', function(){
             expect(OSI.ServiceProvider).to.be.a('object');
         });
     });
-/*
     describe('Consumers before, serivces after', function(){
         it('Consumers are waiting for services to become available', function () {
             var response;
