@@ -1,12 +1,14 @@
-var consumer = require("./lib/service-consumer");
+'use strict';
+
+var consumer = require('./lib/service-consumer');
 var provider = require('./lib/service-provider');
-var service  = require('./lib/service-base'    );
+var AService  = require('./lib/abstracts/service.abstract');
 
 var osi = module.exports;
 
 osi.ServiceConsumer = consumer ;
 osi.ServiceProvider = provider ;
-osi.Service         = service  ;
+osi.AService        = AService  ;
 
 // TODO: Move ServiceProvider here
 // TODO: Can we use promises ? Think so :)

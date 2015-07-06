@@ -6,12 +6,6 @@ var OSI     = require('../index.js');
  
 describe('OSI', function(){
 
-    describe('Service', function(){
-        it('Should be able to use the Service.', function(){
-            expect(OSI.Service).to.be.a('function');
-        });
-    });
-
     describe('ServiceConsumer', function(){
         it('Should be able to use the ServiceConsumer.', function(){
             expect(OSI.ServiceConsumer).to.be.a('function');
