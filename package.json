@@ -14,8 +14,7 @@
     "url": "git://github.com/bitvice/bitvice-osi"
   },
   "dependencies": {
-    "es6-module-loader": "^0.17.3",
-    "lodash": "~3.10.0"
+    "es6-module-loader": "^0.17.3"
   },
   "devDependencies": {
     "chai": "~3.0.0",
