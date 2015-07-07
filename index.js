@@ -19,11 +19,16 @@ var servicesCache = new WeakMap();
 // Stores the list of classes that waits for services to be registered
 var dependencies = new WeakMap();
 
+var mServices = new Map();
+
 //
 // Generate a object containing the provided service name, to use in weak maps
 //
 function serviceObject (serviceName) {
-    return {service: serviceName};
+    if (!mServices.has(serviceName)) {
+        mServices.set(serviceName, {service: serviceName});
+    }
+    return mServices.get(serviceName);
 }
 
 
@@ -41,7 +46,7 @@ OSI.requestService = function (serviceName, fnResolve, fnReject) {
         return;
     }
 
-    if (!dependencies.has(serviceName)) {
+    if (!dependencies.has(objService)) {
         dependencies.set(objService, new Set());
     }
 
