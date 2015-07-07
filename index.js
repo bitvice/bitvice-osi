@@ -14,10 +14,10 @@
 var OSI = module.exports;
 
 // Stores the list of registered services
-var servicesCache = new WeakSet;
+var servicesCache = new WeakSet();
 
 // Stores the list of classes that waits for services to be registered
-var dependencies = new WeakMap;
+var dependencies = new WeakMap();
 
 //
 // Generate a object containing the provided service name, to use in weak maps
@@ -41,8 +41,8 @@ OSI.requestService = function (serviceName, fnResolve, fnReject) {
         return;
     }
 
-    if (!dependencies.has(serviceName) === "undefined") {
-        dependencies.add(objService, new Set);
+    if (!dependencies.has(serviceName)) {
+        dependencies.set(objService, new Set());
     }
 
     dependencies.get(objService) . 
