@@ -71,7 +71,7 @@ OSI.registerService = function (serviceName, serviceClass) {
 
     if (dependencies.has(objService)) {
         dependencies.get(objService) . 
-            each (function (consumer) {
+            forEach (function (consumer) {
                 consumer.resolve(serviceInstance);
             });
     }
