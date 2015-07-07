@@ -10,18 +10,7 @@ describe('OSI Basic usage', function(){
     });
 
     it('OSI.registerService', function () {
-        var tmpVar = 0;
         expect(OSI.registerService).to.be.a('function');
-
-        try {
-            OSI.registerService();
-            tmpVar = 1;
-        } catch (e) {
-            tmpVar = -1;
-            expect(e).to.be.a('object');
-        }
-
-        expect(tmpVar).to.be.a('number', -1);        
     });
 
     it('OSI.requestService', function () {
@@ -38,8 +27,13 @@ describe('OSI Basic usage', function(){
 
         should.not.exist(testVar);
 
-        OSI.registerService(srvName);
+        OSI.registerService(srvName, function(){return {setName: function(){}}});
 
         expect(testVar).to.be.a('number', expectedVar);
+    });
+
+    it ('Rejects undefined services', function() {
+	should.Throw(function(){OSI.registerService('Test')}, Error);
+	should.Throw(function(){OSI.registerService()}, Error);
     });
 });
