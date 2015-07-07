@@ -14,7 +14,7 @@
 var OSI = module.exports;
 
 // Stores the list of registered services
-var servicesCache = new WeakSet();
+var servicesCache = new WeakMap();
 
 // Stores the list of classes that waits for services to be registered
 var dependencies = new WeakMap();
@@ -23,7 +23,7 @@ var dependencies = new WeakMap();
 // Generate a object containing the provided service name, to use in weak maps
 //
 function serviceObject (serviceName) {
-    return {servoce: serviceName};
+    return {service: serviceName};
 }
 
 
@@ -36,7 +36,7 @@ OSI.requestService = function (serviceName, fnResolve, fnReject) {
 
     var objService = serviceObject(serviceName);
 
-    if (servicesCache.has(serviceName)) {
+    if (servicesCache.has(objService)) {
         fnResolve(servicesCache.get(serviceName));
         return;
     }
@@ -51,11 +51,16 @@ OSI.requestService = function (serviceName, fnResolve, fnReject) {
 
 //
 // Receive a service and notify the consumers about it's existence
+// http://www.es6fiddle.net/ibtbbllg/
 //
 OSI.registerService = function (serviceName, serviceClass) {
     var objService = serviceObject(serviceName);
-    var serviceInstance = new serviceClass();
-    serviceInstance.setName(serviceName);
+    var serviceInstance;
+
+    if (typeof(serviceClass) != 'undefined') {
+        serviceInstance = new serviceClass();
+        serviceInstance.setName(serviceName);
+    }
 
     servicesCache.set(objService, serviceInstance);
 
