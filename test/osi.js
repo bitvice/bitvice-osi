@@ -10,7 +10,18 @@ describe('OSI Basic usage', function(){
     });
 
     it('OSI.registerService', function () {
+        var tmpVar = 0;
         expect(OSI.registerService).to.be.a('function');
+
+        try {
+            OSI.registerService();
+            tmpVar = 1;
+        } catch (e) {
+            tmpVar = -1;
+            expect(e).to.be.a('object');
+        }
+
+        expect(tmpVar).to.be.a('number', -1);        
     });
 
     it('OSI.requestService', function () {
