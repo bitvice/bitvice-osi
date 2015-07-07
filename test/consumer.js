@@ -6,30 +6,32 @@ var chai    = require('chai'),
     should  = chai.should();
 var OSI     = require('../index.js');
  
-// describe('OSI', function(){
+describe('OSI', function(){
 
-//     describe('Service', function(){
-//         it('Can use the OSI.AService.', function(){
-//             expect(OSI.AService).to.be.a('function');
-//         });
+    describe('Coonsumer', function(){
+        it('Can use the OSI.AConsumer.', function(){
+            expect(OSI.AConsumer).to.be.a('function');
+        });
 
-//         it('Service changed test value via "run" method.', function () {
-//             var test = 0;
-
-//             expect(test).to.be.a('number', 5);
-
-//         });
-//     });
-
-// });
+        it('Service changed test value via "run" method.', function () {
+            var testVar;
 
             class BasicConsumer extends OSI.AConsumer {
                 constructor (dependencies) {
                     super(dependencies);
                 }
+
+                ready () {
+                    testVar = 100;
+                }
             }
 
-            var c = new BasicConsumer (["BASIC.SVC"]);
+            var consumer = new BasicConsumer (["BASIC.SVC"]);
 
-            console.log(c);
-// use promise to register to services
+            expect(consumer).to.be.a('object');
+
+            should.not.exist(testVar);
+
+        });
+    });
+});
