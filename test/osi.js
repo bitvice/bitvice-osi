@@ -30,6 +30,9 @@ describe('OSI Basic usage', function(){
         OSI.registerService(srvName, function(){return {setName: function(){}}});
 
         expect(testVar).to.be.a('number', expectedVar);
+
+      var s = OSI.service(srvName);
+      should.exist(s.setName);
     });
 
     it ('Rejects undefined services', function() {
