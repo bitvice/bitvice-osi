@@ -13,18 +13,6 @@
 
 var osi = module.exports;
 
-osi.AConsumer = require('./lib/abstracts/consumer.abstract');
-osi.AService  = require('./lib/abstracts/service.abstract');
-
-// TODO: Can we use promises ? Think so :)
-
-
-
-
-var _ = require('lodash');
-
-var exports = module.exports;
-
 // Stores the list of registered services
 var servicesCache = new WeakSet;
 
@@ -79,3 +67,9 @@ osi.registerService = function (serviceName, serviceClass) {
 osi.service = function (serviceName) {
     return servicesCache.get(serviceObject(serviceName));
 };
+
+
+
+osi.AConsumer = require('./lib/abstracts/consumer.abstract');
+
+osi.AService  = require('./lib/abstracts/service.abstract');
