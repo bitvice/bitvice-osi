@@ -45,6 +45,11 @@ describe('OSI Basic usage', function(){
 	   should.Throw(function(){OSI.registerService()}, Error);
     });
 
+    it ('Rejects undefined service name for consumer', function() {
+       should.Throw(function(){OSI.requestService()}, Error);
+    });
+
+
     it('Service first, consumer after', function () {
         var testVar;
         var expectedVar = 10;
