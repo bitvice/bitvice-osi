@@ -16,7 +16,7 @@ describe('OSI', function(){
         it('Service changed test value via "run" method.', function () {
             var testVar;
 
-	    OSI.registerService('A', function () {return {setName: function(){}};});
+            OSI.registerService('A', function () {return {setName: function(){}};});
 
             class BasicConsumer extends OSI.AConsumer {
                 constructor (dependencies) {
@@ -34,6 +34,6 @@ describe('OSI', function(){
 
             should.not.exist(testVar);
 
-        });
+        });       
     });
 });
