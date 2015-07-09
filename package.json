@@ -1,6 +1,6 @@
 {
   "name": "bitvice-osi",
-  "description": "Observer Services Injection from bitVice",
+  "description": "ES6 Observer Services Injection",
   "version": "2.0.1",
   "contributors": [
     {
