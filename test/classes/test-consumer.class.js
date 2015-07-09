@@ -3,11 +3,12 @@
 var OSI = require('../../index.js');
 
 class TestConsumer extends OSI.AConsumer {
-    constructor (dependencies, value) {
+    constructor (dependencies, value, reject) {
         super(dependencies);
 
         this.test = 0;
         this.tmp = value;
+        this.reject = reject;
     }
 
     ready () {
@@ -16,6 +17,10 @@ class TestConsumer extends OSI.AConsumer {
 
     getTest () {
         return this.test;
+    }
+
+    rejectService () {
+        this.test = this.reject;
     }
 }
 

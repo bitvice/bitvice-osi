@@ -91,4 +91,25 @@ describe('OSI Basic usage', function(){
         expect(testVar).to.be.a('number', expectedVar);
     });
 
+    it('Complete registration', function () {
+        var testVar;
+        var srvName = "TestService3";
+        var expectedVar = 10;
+
+        var TestConsumer = require('./classes/test-consumer.class');
+
+        var s = new TestConsumer([srvName], 1, expectedVar);
+
+        testVar = s.getTest();
+
+        expect(testVar).to.be.a('number', 1);
+
+        OSI.completeRegistration();
+
+        testVar = s.getTest();
+
+        expect(testVar).to.be.a('number', expectedVar);
+
+    });
+
 });
