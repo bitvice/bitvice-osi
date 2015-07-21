@@ -34,6 +34,10 @@ describe('OSI', function(){
 
             should.not.exist(testVar);
 
+
+            var status1 = consumer.status;
+            expect(status1).to.be.a('string', 'pending');
+
         });       
     });
 });
