@@ -112,4 +112,25 @@ describe('OSI Basic usage', function(){
 
     });
 
+    it('Clear services cache', function () {
+        var testVar;
+        var srvName = "TestService4";
+        var expectedVar = 10;
+
+        var TestConsumer = require('./classes/test-consumer.class');
+
+        var s = new TestConsumer([srvName], 1, expectedVar);
+
+        testVar = s.getTest();
+
+        expect(testVar).to.be.a('number', 1);
+
+        OSI.reset();
+
+        testVar = s.getTest();
+
+        expect(testVar).to.be.a('number', expectedVar);
+
+    });
+
 });
